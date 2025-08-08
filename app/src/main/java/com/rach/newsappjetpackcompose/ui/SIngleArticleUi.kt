@@ -53,6 +53,7 @@ fun SingleArticleUi(
                     text = article.publishedAt
                 )
             }
+            //
             Spacer(modifier = Modifier.width(5.dp))
             Column {
                 Text(
