@@ -44,11 +44,11 @@ fun SingleArticleUi(
                     modifier = Modifier.size(width = 160.dp, height = 90.dp),
                     contentScale = ContentScale.Crop
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(14.dp))
                 Text(
                     text = article.source.name,
                 )
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(5.dp))
                 Text(
                     text = article.publishedAt
                 )
