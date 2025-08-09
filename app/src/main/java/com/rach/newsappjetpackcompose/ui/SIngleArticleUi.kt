@@ -6,16 +6,15 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
@@ -30,57 +29,51 @@ fun SingleArticleUi(
     modifier: Modifier = Modifier,
     article: Article,
 ) {
-
     Column(
         modifier = modifier
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth()
-        ) {
+        Row {
             Column {
                 AsyncImage(
-                    model = R.drawable.choti,
-                    contentDescription = "Article Image",
+                    model = article.urlToImage,
+                    contentDescription = "Api Image",
                     modifier = Modifier.size(width = 160.dp, height = 90.dp),
-                    contentScale = ContentScale.Crop
+                    contentScale = ContentScale.Crop,
+                    placeholder = painterResource(R.drawable.ic_launcher_foreground)
                 )
                 Spacer(modifier = Modifier.height(14.dp))
                 Text(
-                    text = article.source.name,
+                    text = article.source.name
                 )
-                Spacer(modifier = Modifier.height(5.dp))
                 Text(
                     text = article.publishedAt
                 )
             }
-            //
-            Spacer(modifier = Modifier.width(5.dp))
+            Spacer(modifier = Modifier.height(10.dp))
             Column {
+                //Title
                 Text(
                     text = article.title,
-                    maxLines = 3,
-                    overflow = TextOverflow.Ellipsis,
                     fontWeight = FontWeight.Bold,
                     style = TextStyle(
                         lineHeight = 18.sp
-                    )
+                    ),
+                    maxLines = 3,
+                    overflow = TextOverflow.Ellipsis
                 )
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(8.dp))
+                //Description
                 Text(
                     text = article.description,
-                    maxLines = 5,
-                    overflow = TextOverflow.Ellipsis,
                     style = TextStyle(
                         lineHeight = 18.sp
-                    )
+                    ),
+                    maxLines = 5,
+                    overflow = TextOverflow.Ellipsis
                 )
             }
-
         }
-
-
     }
-
 }
 
 @AppPreview
@@ -88,16 +81,15 @@ fun SingleArticleUi(
 private fun Preview() {
     NewsAppJetPackComposeTheme {
         SingleArticleUi(
-            modifier = Modifier.fillMaxWidth(),
             article = Article(
-                title = " AsyncImage is a composable that executes an image request asynchronously and renders the result. It supports the same arguments as the standard Image composable and additionally, it",
-                description = "AsyncImage is a composable that executes an image request asynchronously and renders the result. It supports the same arguments as the standard Image composable and additionally, it , AsyncImage is a composable that executes an image request asynchronously and renders the result. It supports the same arguments as the standard Image composable and additionally, it",
+                title = stringResource(R.string.title),
+                description = stringResource(R.string.description),
                 source = Source(
-                    id = "727",
                     name = "Aaj Tak"
                 ),
-                publishedAt = "12/9/2026"
-            )
+                publishedAt = "12/3/2025"
+            ),
+            modifier = Modifier.fillMaxWidth()
         )
     }
 }

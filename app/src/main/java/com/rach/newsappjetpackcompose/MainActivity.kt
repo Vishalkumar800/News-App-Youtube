@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import com.rach.newsappjetpackcompose.model.Article
 import com.rach.newsappjetpackcompose.model.Source
 import com.rach.newsappjetpackcompose.theme.NewsAppJetPackComposeTheme
+import com.rach.newsappjetpackcompose.ui.HomeScreen
 import com.rach.newsappjetpackcompose.ui.SingleArticleUi
 
 class MainActivity : ComponentActivity() {
@@ -25,23 +26,7 @@ class MainActivity : ComponentActivity() {
         //enableEdgeToEdge()
         setContent {
             NewsAppJetPackComposeTheme {
-                Column(modifier = Modifier.fillMaxSize()){
-                    repeat(3){
-                        SingleArticleUi(
-                            modifier = Modifier.fillMaxWidth(),
-                            article = Article(
-                                title = " AsyncImage is a composable that executes an image request asynchronously and renders the result. It supports the same arguments as the standard Image composable and additionally, it",
-                                description = "AsyncImage is a composable that executes an image request asynchronously and renders the result. It supports the same arguments as the standard Image composable and additionally, it , AsyncImage is a composable that executes an image request asynchronously and renders the result. It supports the same arguments as the standard Image composable and additionally, it",
-                                source = Source(
-                                    id = "727",
-                                    name = "Aaj Tak"
-                                ),
-                                publishedAt = "12/9/2026"
-                            )
-                        )
-                        Spacer(modifier = Modifier.height(16.dp))
-                    }
-                }
+                HomeScreen()
             }
         }
     }
