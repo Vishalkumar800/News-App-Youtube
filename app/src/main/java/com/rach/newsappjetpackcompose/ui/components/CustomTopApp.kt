@@ -13,20 +13,23 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CustomTopAppBar(
     modifier: Modifier = Modifier,
-    title: String,
-    onSearchIconClick:() -> Unit = {},
-    onHomeIconClicked:() -> Unit = {},
-    onBackArrowClick:() -> Unit = {}
+    title: String?,
+    onSearchIconClick: () -> Unit = {},
+    onHomeIconClicked: () -> Unit = {},
+    onBackArrowClick: () -> Unit = {}
 ) {
     CenterAlignedTopAppBar(
         modifier = modifier,
-        title = { Text(title) },
+        title = {
+            if (title != null) {
+                Text(title)
+            }
+        },
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)
         ),
