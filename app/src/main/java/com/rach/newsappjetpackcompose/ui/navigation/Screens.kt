@@ -6,3 +6,4 @@ sealed class Screens(val route: String) {
     object SearchScreen: Screens("Search Screen")
 }
 
+  
