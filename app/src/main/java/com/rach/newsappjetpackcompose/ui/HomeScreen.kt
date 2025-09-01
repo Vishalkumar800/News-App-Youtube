@@ -14,17 +14,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.rach.newsappjetpackcompose.NewsState
 import com.rach.newsappjetpackcompose.NewsViewModel
-import com.rach.newsappjetpackcompose.NewsViewModelFactory
-import com.rach.newsappjetpackcompose.api.NewsRepositoryImp
+import com.rach.newsappjetpackcompose.ui.components.SingleArticleUi
 
 @Composable
 fun HomeScreen(
-    viewModel: NewsViewModel = viewModel(
-        factory = NewsViewModelFactory(newsRepository = NewsRepositoryImp())
-    )
+    viewModel: NewsViewModel
 ) {
 
     val state = viewModel.breakingNewsState.collectAsState()

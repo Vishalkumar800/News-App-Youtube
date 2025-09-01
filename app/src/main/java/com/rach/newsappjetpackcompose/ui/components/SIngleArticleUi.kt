@@ -1,4 +1,4 @@
-package com.rach.newsappjetpackcompose.ui
+package com.rach.newsappjetpackcompose.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -43,7 +43,7 @@ fun SingleArticleUi(
                 )
                 Spacer(modifier = Modifier.height(14.dp))
                 Text(
-                    text = article.source.name
+                    text = article.source.name ?: "Unknown Source"
                 )
                 Text(
                     text = article.publishedAt
